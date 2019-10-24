@@ -25,27 +25,27 @@ public class Main {
 			}
 
 		}
-		for (int item : randomNoArray) {
+		for (int item : randomNoArray) { 
 			System.out.println(item);
 		}
 		System.out.println("==================================================");
 
-/*		while (userNoArray[NO_COUNT - 1] == 0) {
-			int randomValue = (int) (Math.random() * 9) + 1;// 0~0.999999999
-			for (j = 0; j < i + 1; j++) {
-				if (randomNoArray[j] == randomValue) {
-					i--;
+		while(userNoArray[NO_COUNT - 1] == 0) {
+			int randomValue = (int)(Math.random() * 9) + 1;
+			
+			for(int z=0; z<NO_COUNT; z++) {
+				if(userNoArray[z] == randomValue) {					
 					break;
-				} else if (randomNoArray[j] == 0) {
-					randomNoArray[j] = randomValue;
+				} else if(userNoArray[z] == 0) {
+					userNoArray[z] = randomValue;
 					break;
 				}
 			}
-
 		}
-		for (int item : randomNoArray) {
+		
+		for(int item : userNoArray) {
 			System.out.println(item);
-		}*/
+		}
 		
 
 	}
