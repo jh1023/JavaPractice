@@ -18,80 +18,88 @@ public class VendingMachine {
 	}
 
 	public void purchase(int idx, int money) {
-		//해당제품의 주소값을 빼온 다음에
-		//money값과 제품의 price 값을 비교
-		//금액이 부족하면 "금액이 부족합니다."
-		//else 잔돈을 나타낸다
-		//idx값이 마이너스 값이거나 outofArrayIndex 에러가 나지 않도록
-		int targetIdx = idx -1;
-		
-		if(targetIdx < 0|| targetIdx >=drinks.size()) {
+		// 해당제품의 주소값을 빼온 다음에
+		// money값과 제품의 price 값을 비교
+		// 금액이 부족하면 "금액이 부족합니다."
+		// else 잔돈을 나타낸다
+		// idx값이 마이너스 값이거나 outofArrayIndex 에러가 나지 않도록
+		// 재고가 없으면 메세지 "재고가 부족합니다."
+		// 구매를 했다면 재고를 -1시킨다.
+		int targetIdx = idx - 1;
+
+		if (targetIdx < 0 || targetIdx >= drinks.size()) {
 			System.out.println("에러발생");
 			return;
 		}
-		Drink d =drinks.get(idx-1);
-		
-		
-		if(money < d.getPrice()) {
+		Drink d = drinks.get(idx - 1);
+
+		if (money < d.getPrice()) {
 			System.out.println("금액이 부족합니다.");
-			
+
+		} else {
+			int calc = money - d.getPrice();
+			System.out.println("남은돈은 "+ calc + "원입니다.");
 		}
-		else {
-			int calc = money-d.getPrice();
-			System.out.println(calc + "원입니다.");
+		if (d.getStock() <= 0) {
+			System.out.println("재고가 부족합니다.");
+		} else {
+			System.out.println((d.getStock() - 1) + "개입니다.");
 		}
-		
-		
-		
+
 	}
-	
-	
+
 	public void showDrinks() {
+		System.out.println("-----------for문-----------------");
+
 		int i;
 		for (i = 0; i < drinks.size(); i++) {
 			Drink d = drinks.get(i);
-			System.out.printf("%d  %s(%, d원) %d개\n", (i + 1), d.getpName(), d.getPrice(),
-					d.getStock());
+			System.out.printf("%d  %s(%, d원) %d개\n", (i + 1), d.getpName(), d.getPrice(), d.getStock());
 		}
-		
-		System.out.println("----------------------");
-		
+
+		System.out.println("------for each문----------------");
+
 		int y = 1;
 		for (Drink d : drinks) {
 			System.out.printf("%d.%s\n", y++, d);
 		}
 		System.out.println("----------------------");
 
-		int z=1;
-		for(Drink d: drinks) {
-			System.out.printf("%d  %s(%, d원)\n", z++, d.getpName(), d.getPrice());
+		int z = 1;
+		for (Drink d : drinks) {
+			System.out.printf("%d  %s(%, d원) %d개 \n", z++, d.getpName(), d.getPrice(),d.getStock());
 		}
-			
-	}
-	
-	//파라미터 idx, 갯수
-	public void putProduct(int idx, int qty) {
-		//1, 10 콜라의 stock값을 10으로 바꿔줌.
-		int targetIdx = idx -1;
+		System.out.println("----------------------");
 
-		
-		if(targetIdx < 0|| targetIdx >=drinks.size()) {
+		for (i = 0; i < drinks.size(); i++) {
+			Drink d = drinks.get(i);
+			System.out.printf("%d, %s\n", (i + 1), d);
+		}
+
+	}
+
+	// 파라미터 idx, 갯수
+
+	public void putProduct(int idx, int qty) {
+		// 1, 10 콜라의 stock값을 10으로 바꿔줌.
+		int targetIdx = idx - 1;
+
+		if (targetIdx < 0 || targetIdx >= drinks.size()) {
 			System.out.println("에러발생!!!!!");
 			return;
 		}
-		else if(qty < 0) {
+
+		else if (qty < 0) {
 			System.out.println("재고는 마이너스 값 불가");
 
 			return;
-		}
-		else {
+		} else {
 			System.out.println(qty + "개입니다.");
 		}
-		
-		Drink d =drinks.get(idx-1);
+
+		Drink d = drinks.get(idx - 1);
 		d.setStock(qty);
-		
-		
+
 	}
 }
 
