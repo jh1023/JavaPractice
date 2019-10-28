@@ -17,14 +17,46 @@ public class VendingMachine {
 
 	}
 
+	public void purchase(int idx, int money) {
+		//해당제품의 주소값을 빼온 다음에
+		//money값과 제품의 price 값을 비교
+		//금액이 부족하면 "금액이 부족합니다."
+		//else 잔돈을 나타낸다
+		//idx값이 마이너스 값이거나 outofArrayIndex 에러가 나지 않도록
+		
+		if(money < idx) {
+			System.out.println("금액이 부족합니다.");
+		}
+		else {
+			System.out.println("잔액입니다."+(money-idx));
+		}
+		
+	}
+	
+	
 	public void showDrinks() {
 		int i;
 		for (i = 0; i < drinks.size(); i++) {
 			Drink d = drinks.get(i);
-			System.out.printf("%d  %s(%, d원)",(i+1), d.getpName(),d.getPrice());
-			
+			System.out.printf("%d  %s(%, d원)\n", (i + 1), d.getpName(), d.getPrice());
 		}
+		
+		System.out.println("----------------------");
+		
+		int y = 1;
+		for (Drink d : drinks) {
+			System.out.printf("%d.%s\n", y++, d);
+		}
+		System.out.println("----------------------");
 
+		int z=1;
+		for(Drink d: drinks) {
+			System.out.printf("%d  %s(%, d원)\n", z++, d.getpName(), d.getPrice());
+		}
+		
+		
+
+		
 	}
 }
 
