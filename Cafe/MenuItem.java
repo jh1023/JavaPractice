@@ -11,7 +11,7 @@ public class MenuItem {
 
 	}
 
-	public static void showCount() { //멤버필드값에 사용불가 ex)private final String menuName
+	public static void showCount() { // 멤버필드값에 사용불가 ex)private final String menuName
 		System.out.println("count:" + count);
 	}
 
