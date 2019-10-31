@@ -1,4 +1,4 @@
-package com.jh.algo;
+package com.jh.algo;  //for문으로 별찍기
 
 public class PrintStar {
 	public static void main(String[] args) {
