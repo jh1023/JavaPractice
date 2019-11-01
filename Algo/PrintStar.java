@@ -1,4 +1,4 @@
-package com.jh.algo;  //for문으로 별찍기
+package com.jh.algo;
 
 public class PrintStar {
 	public static void main(String[] args) {
@@ -20,22 +20,6 @@ public class PrintStar {
 	}
 
 	public static void reversPrintStar(int line) {
-		for (int i = 0; i < line; i++) {
-			for (int j = line; j >= 0; j--) {
-				if (j > i) {
-
-					System.out.print("");
-				}
-				else {
-					System.out.print("*");
-				}
-			}
-			System.out.println();
-		}
-
-	}
-	
-/*		public static void reversPrintStar(int line) {
 		for (int z = 0; z < line; z++) {
 			for (int i = 0; i < line; i++) {
 				if (i < (line - (z + 1))) {
@@ -48,6 +32,6 @@ public class PrintStar {
 			System.out.println();
 		}
 
-	}*/
+	}
 
 }
